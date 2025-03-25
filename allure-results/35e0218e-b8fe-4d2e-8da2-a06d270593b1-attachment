@@ -1,0 +1,152 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual comparison for dynamic elements
+- Location: D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts:8:6
+
+# Error details
+
+```
+Error: Timed out 6000ms waiting for expect(page).toHaveScreenshot(expected)
+
+  Failed to take two consecutive stable screenshots.
+Previous: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-for-dynamic-elements-chromium\visual-comparison-for-dynamic-elements-1-previous.png
+Received: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-for-dynamic-elements-chromium\visual-comparison-for-dynamic-elements-1-actual.png
+    Diff: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-for-dynamic-elements-chromium\visual-comparison-for-dynamic-elements-1-diff.png
+
+Call log:
+  - expect.toHaveScreenshot with timeout 6000ms
+    - generating new stable screenshot expectation
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - waiting 100ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 4434 pixels (ratio 0.01 of all image pixels) are different.
+  - waiting 250ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 10560 pixels (ratio 0.01 of all image pixels) are different.
+  - waiting 500ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 23608 pixels (ratio 0.03 of all image pixels) are different.
+  - waiting 1000ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 19382 pixels (ratio 0.02 of all image pixels) are different.
+  - waiting 1000ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 11731 pixels (ratio 0.01 of all image pixels) are different.
+  - waiting 1000ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 27090 pixels (ratio 0.03 of all image pixels) are different.
+  - waiting 1000ms before taking screenshot
+  - Timeout 6000ms exceeded.
+
+    at D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts:10:24
+```
+
+# Page snapshot
+
+```yaml
+- navigation:
+  - heading "QA Practice" [level=3]:
+    - link "QA Practice"
+  - list:
+    - listitem:
+      - link "Ecommerce - Login, Add to Cart, Submit order, Logout"
+    - listitem:
+      - link "Spot the BUGS CHALLENGE"
+    - listitem:
+      - link "GraphQL Testing"
+    - listitem:
+      - link "API Testing"
+    - listitem:
+      - link "Products List - Shop"
+    - listitem:
+      - link "Intercept API Request"
+    - listitem:
+      - link "Visual Testing - GIF Page"
+    - listitem:
+      - link "Forms"
+    - listitem:
+      - link "Buttons"
+    - listitem:
+      - link "New Tab / Window"
+    - listitem:
+      - link "Btn actions"
+    - listitem:
+      - link "Tables"
+    - listitem:
+      - link "Dropdowns"
+    - listitem:
+      - link "Iframes"
+    - listitem:
+      - link "Alerts"
+    - listitem:
+      - link "File Upload"
+    - listitem:
+      - link "Date Pickers"
+    - listitem:
+      - link "Loader"
+    - listitem:
+      - link "Pagination"
+  - list:
+    - listitem:
+      - link "RV - Website"
+    - listitem:
+      - link "Let's connect - LinkedIn"
+    - listitem:
+      - link "Learn with RV - YouTube"
+- navigation:
+  - button
+  - list:
+    - listitem:
+      - link "Home"
+    - listitem:
+      - link "Contact"
+- heading "GIF page" [level=2]
+- paragraph: This page can be used for Visual Testing purpose, to bypass/handle the gif section
+- img
+- paragraph: A cupiditate consectetur nemo ut fugiat quod assumenda.
+- paragraph: Dolore hic quas tempora temporibus vero modi vero.
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | //====================================Tests==================================
+   3 | test('visual comparison', async ({ page }) => {
+   4 |     await page.goto('https://qa-practice.netlify.app/auth_ecommerce');
+   5 |     await expect(page).toHaveScreenshot();
+   6 |     });
+   7 |
+   8 | test.only('visual comparison for dynamic elements', async ({ page }) => {
+   9 |     await page.goto('https://qa-practice.netlify.app/visual');
+> 10 |     await expect(page).toHaveScreenshot();
+     |                        ^ Error: Timed out 6000ms waiting for expect(page).toHaveScreenshot(expected)
+  11 |     });
+```

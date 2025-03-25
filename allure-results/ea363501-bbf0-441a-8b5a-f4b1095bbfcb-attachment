@@ -1,0 +1,120 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual comparison
+- Location: D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts:3:5
+
+# Error details
+
+```
+Error: expect(page).toHaveScreenshot(expected)
+
+  11418 pixels (ratio 0.01 of all image pixels) are different.
+
+Expected: D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts-snapshots\visual-comparison-1-chromium-win32.png
+Received: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-chromium\visual-comparison-1-actual.png
+    Diff: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-chromium\visual-comparison-1-diff.png
+
+Call log:
+  - expect.toHaveScreenshot with timeout 6000ms
+    - verifying given screenshot expectation
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 11418 pixels (ratio 0.01 of all image pixels) are different.
+  - waiting 100ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - captured a stable screenshot
+  - 11418 pixels (ratio 0.01 of all image pixels) are different.
+
+    at D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts:5:24
+```
+
+# Page snapshot
+
+```yaml
+- navigation:
+  - heading "QA Practice" [level=3]:
+    - link "QA Practice"
+  - list:
+    - listitem:
+      - link "Ecommerce - Login, Add to Cart, Submit order, Logout"
+    - listitem:
+      - link "Spot the BUGS CHALLENGE"
+    - listitem:
+      - link "GraphQL Testing"
+    - listitem:
+      - link "API Testing"
+    - listitem:
+      - link "Products List - Shop"
+    - listitem:
+      - link "Intercept API Request"
+    - listitem:
+      - link "Visual Testing - GIF Page"
+    - listitem:
+      - link "Forms"
+    - listitem:
+      - link "Buttons"
+    - listitem:
+      - link "New Tab / Window"
+    - listitem:
+      - link "Actions"
+    - listitem:
+      - link "Dropdowns"
+    - listitem:
+      - link "Iframes"
+    - listitem:
+      - link "Alerts"
+    - listitem:
+      - link "File Upload"
+    - listitem:
+      - link "Tables"
+    - listitem:
+      - link "Date Pickers"
+    - listitem:
+      - link "Loader"
+    - listitem:
+      - link "Pagination"
+  - list:
+    - listitem:
+      - link "RV - Website"
+    - listitem:
+      - link "Let's connect - LinkedIn"
+    - listitem:
+      - link "Learn with RV - YouTube"
+- navigation:
+  - button
+  - list:
+    - listitem:
+      - link "Home"
+    - listitem:
+      - link "Contact"
+    - listitem
+- heading "Login - Shop" [level=2]
+- text: "Please use credentials Email: admin@admin.com Password: admin123 Email"
+- textbox "Email"
+- text: Password
+- textbox "Password"
+- button "Submit"
+```
+
+# Test source
+
+```ts
+  1 | import { test, expect } from '@playwright/test';
+  2 | //====================================Tests==================================
+  3 | test('visual comparison', async ({ page }) => {
+  4 |     await page.goto('https://qa-practice.netlify.app/auth_ecommerce');
+> 5 |     await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
+    |                        ^ Error: expect(page).toHaveScreenshot(expected)
+  6 |     });
+```

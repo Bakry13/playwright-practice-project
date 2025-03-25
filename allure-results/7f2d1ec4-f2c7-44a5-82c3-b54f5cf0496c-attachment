@@ -1,0 +1,63 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Login test >> invalid login
+- Location: D:\Course\PlaywrightFramework\tests\ui\specs\loginWithFixture.spec.ts:20:9
+
+# Error details
+
+```
+Error: locator.fill: Target page, context or browser has been closed
+Call log:
+  - waiting for getByPlaceholder('Username')
+
+    at LoginPage.login (D:\Course\PlaywrightFramework\tests\ui\pages\loginPage.ts:28:32)
+    at D:\Course\PlaywrightFramework\tests\ui\specs\loginWithFixture.spec.ts:21:33
+```
+
+# Test source
+
+```ts
+   1 | import { expect, type Locator, type Page } from "@playwright/test"; // Import expect, Locator, and Page from Playwright
+   2 |
+   3 | export class LoginPage{
+   4 |     //=====================Locators=====================
+   5 |     readonly page: Page; // Create a variable for the page
+   6 |     readonly username_tb: Locator; // Create a variable for the username textbox
+   7 |     readonly password_tb: Locator; // Create a variable for the password textbox
+   8 |     readonly login_btn: Locator; // Create a variable for the login button
+   9 |     readonly invalidLoginMessage: Locator; // Create a variable for the invalid login message
+  10 |     //=====================Variables====================
+  11 |     readonly url: string = "https://opensource-demo.orangehrmlive.com/"; // Create a variable for the URL
+  12 |     readonly invalidLoginMessageText: string = "Invalid credentials"; // Create a variable for the invalid login message text
+  13 |     //=====================Constructor==================
+  14 |     constructor(page: Page) {
+  15 |         this.page = page;
+  16 |         this.username_tb = page.getByPlaceholder('Username'); // Set the username textbox locator
+  17 |         this.password_tb = page.getByPlaceholder('Password'); // Set the password textbox locator
+  18 |         this.login_btn = page.getByRole('button', { name: 'Login' }); // Set the login button locator
+  19 |         this.invalidLoginMessage = page.locator("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"); // Set the invalid login message locator
+  20 |     }
+  21 |     //=====================Methods======================
+  22 |     //---------------------Actions----------------------
+  23 |     async open(){
+  24 |         await this.page.goto(this.url); // Open the URL
+  25 |     }
+  26 |
+  27 |     async login(username: string, password: string){
+> 28 |         await this.username_tb.fill(username); // Fill in the username textbox
+     |                                ^ Error: locator.fill: Target page, context or browser has been closed
+  29 |         await this.password_tb.fill(password); // Fill in the password textbox
+  30 |         await this.login_btn.click(); // Click the login button
+  31 |     }
+  32 |     //---------------------Assertions-------------------
+  33 |     async assertInvalidLoginMessage(){
+  34 |         await expect(this.invalidLoginMessage).toHaveText(this.invalidLoginMessageText); // Verify the invalid login message
+  35 |     }
+  36 | }
+```

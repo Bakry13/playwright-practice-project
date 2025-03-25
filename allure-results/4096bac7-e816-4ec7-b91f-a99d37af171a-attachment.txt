@@ -1,0 +1,13 @@
+test starts for: intercept browser api response
+{
+  data: [
+    { id: 1, name: 'Freelance' },
+    { id: 2, name: 'Full-Time Contract' },
+    { id: 3, name: 'Full-Time Permanent' },
+    { id: 4, name: 'Full-Time Probation' },
+    { id: 5, name: 'Part-Time Contract' },
+    { id: 6, name: 'Part-Time Internship' }
+  ],
+  meta: { total: 6 },
+  rels: []
+}

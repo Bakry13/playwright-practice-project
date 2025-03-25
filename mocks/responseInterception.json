@@ -1,0 +1,66 @@
+{
+    "results": [
+        {
+            "gender": "male",
+            "name": {
+                "title": "Mr",
+                "first": "Playwright",
+                "last": "User"
+            },
+            "location": {
+                "street": {
+                    "number": 4106,
+                    "name": "E Center St"
+                },
+                "city": "Jackson",
+                "state": "Hawaii",
+                "country": "United States",
+                "postcode": 74242,
+                "coordinates": {
+                    "latitude": "-19.7700",
+                    "longitude": "146.7541"
+                },
+                "timezone": {
+                    "offset": "+7:00",
+                    "description": "Bangkok, Hanoi, Jakarta"
+                }
+            },
+            "email": "serenity.rhodes@example.com",
+            "login": {
+                "uuid": "dc5d6273-ba17-4177-8dad-d7c3ca0cd0ec",
+                "username": "ticklishsnake500",
+                "password": "mybaby",
+                "salt": "NhCeBCX2",
+                "md5": "660324c311d8e0d9c7d9d441ec4dfc52",
+                "sha1": "bc9ad47780d14bccce3c0bb76975b77ad33bb344",
+                "sha256": "a3b6eb75e96f29590050bc1c0b0e7ade0c8d3ae3170422f5bb62c6915965e2d5"
+            },
+            "dob": {
+                "date": "1989-08-28T16:09:56.661Z",
+                "age": 35
+            },
+            "registered": {
+                "date": "2006-07-16T16:14:14.777Z",
+                "age": 18
+            },
+            "phone": "(707) 808-8987",
+            "cell": "(742) 261-0678",
+            "id": {
+                "name": "SSN",
+                "value": "570-92-9114"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/74.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/74.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/74.jpg"
+            },
+            "nat": "US"
+        }
+    ],
+    "info": {
+        "seed": "8731e4838d21412d",
+        "results": 1,
+        "page": 1,
+        "version": "1.4"
+    }
+}

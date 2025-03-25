@@ -1,0 +1,5 @@
+This actions run before all tests
+test starts for: valid login
+user name: user-1
+test ends for: valid login
+This actions run after all tests

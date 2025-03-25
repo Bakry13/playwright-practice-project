@@ -1,0 +1,1 @@
+test starts for: Mocking2: mock api response - another way

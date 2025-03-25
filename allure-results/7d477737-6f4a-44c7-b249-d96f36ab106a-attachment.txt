@@ -1,0 +1,1 @@
+D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts-snapshots\visual-comparison-1-chromium-win32.png is re-generated, writing actual.

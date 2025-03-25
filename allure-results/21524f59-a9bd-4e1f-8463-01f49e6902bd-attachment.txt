@@ -1,0 +1,3 @@
+This actions run before all tests
+test ends for: invalid login1
+This actions run after all tests

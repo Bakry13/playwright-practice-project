@@ -1,0 +1,114 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual comparison using screenshots
+- Location: D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts:3:6
+
+# Error details
+
+```
+Error: expect(page).toHaveScreenshot(expected)
+
+  6164 pixels (ratio 0.01 of all image pixels) are different.
+
+Expected: D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts-snapshots\screenshots-login-chromium-win32.png
+Received: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-using-screenshots-chromium\screenshots-login-actual.png
+    Diff: D:\Course\PlaywrightFramework\test-results\ui-specs-visualTest-visual-comparison-using-screenshots-chromium\screenshots-login-diff.png
+
+Call log:
+  - expect.toHaveScreenshot(screenshots/login.png) with timeout 6000ms
+    - verifying given screenshot expectation
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 6164 pixels (ratio 0.01 of all image pixels) are different.
+  - waiting 100ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - captured a stable screenshot
+  - 6164 pixels (ratio 0.01 of all image pixels) are different.
+
+    at D:\Course\PlaywrightFramework\tests\ui\specs\visualTest.spec.ts:7:24
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - link "image not displaying":
+    - img "image not displaying"
+  - heading "Automation Demo Site" [level=1]
+  - navigation:
+    - insertion
+    - list:
+      - listitem:
+        - link "Home"
+      - listitem:
+        - link "Register"
+      - listitem:
+        - link "WebTable"
+      - listitem:
+        - link "SwitchTo"
+        - text: 
+      - listitem:
+        - link "Widgets"
+        - text: 
+      - listitem:
+        - link "Interactions"
+        - text: 
+      - listitem:
+        - link "Video"
+        - text: 
+      - listitem:
+        - link "WYSIWYG"
+        - text: 
+      - listitem:
+        - link "More"
+        - text: 
+      - listitem:
+        - link "Practice Site"
+- heading "Loading the data Dynamically" [level=3]
+- text: Get Random User
+- paragraph: Clicking on 'Get Dynamic Data' button will get new data every time with Image, First name and Last name
+- button "Get Dynamic Data"
+- insertion
+- insertion
+- insertion
+- insertion
+- text: "\"@ 2016\""
+- link "Automation Testing"
+- text: "\"All Rights Reserved.\""
+- link ""
+- link ""
+- link ""
+- link ""
+- link ""
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | //====================================Tests==================================
+   3 | test.only('visual comparison using screenshots', async ({ page }) => {
+   4 |     await page.goto('https://demo.automationtesting.in/DynamicData.html');
+   5 |     await page.screenshot({path: 'visual/dynamicPage.png'});
+   6 |     // await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
+>  7 |     await expect(page).toHaveScreenshot('screenshots/login.png');
+     |                        ^ Error: expect(page).toHaveScreenshot(expected)
+   8 |     });
+   9 |
+  10 | test('visual comparison using built in snapshots', async ({ page }) => {
+  11 |     await page.goto('https://demo.automationtesting.in/DynamicData.html');
+  12 |     // await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
+  13 |     await expect(page).toHaveScreenshot();
+  14 |     });
+```

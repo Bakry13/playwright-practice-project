@@ -1,0 +1,4 @@
+This actions run before all tests
+test starts for: valid login - group2
+test ends for: valid login - group2
+This actions run after all tests
