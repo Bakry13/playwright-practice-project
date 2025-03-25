@@ -1,1 +1,0 @@
-test starts for: Mocking3 - intercept api request

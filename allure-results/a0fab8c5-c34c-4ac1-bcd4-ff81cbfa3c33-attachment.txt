@@ -1,4 +1,0 @@
-This actions run before all tests
-test starts for: @ui valid login
-test ends for: @ui valid login
-This actions run after all tests
