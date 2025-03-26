@@ -5,7 +5,8 @@
   "scripts": {
     "api": "npx playwright test --grep @api",
     "ui": "npx playwright test --project=ui",
-    "ft": "npx playwright test --grep @ft"
+    "ft": "npx playwright test --grep @ft",
+    "staging": "cross-env ENV=staging npx playwright test --grep @ft"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +15,15 @@
   "devDependencies": {
     "@eslint/js": "^9.23.0",
     "@playwright/test": "^1.51.1",
+    "@reportportal/agent-js-playwright": "^5.1.11",
     "@types/node": "^22.10.10",
     "allure-playwright": "^3.2.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9.23.0",
     "globals": "^16.0.0",
     "typescript-eslint": "^8.28.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }

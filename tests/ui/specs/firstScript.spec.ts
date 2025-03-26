@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test';
+import getEnvironment from '../../utils/setup/envSetup';
 
 test.describe('Login test @ft', ()=> {
-    test('valid login', async ({page}, testInfo) => {
+    test.only('valid login', async ({page}, testInfo) => {
+        getEnvironment.getEnv();
         await page.goto('https://practice.expandtesting.com/login');
         await page.pause();
         await page.locator("//input[@id='username']").fill('practice');
