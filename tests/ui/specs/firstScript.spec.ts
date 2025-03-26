@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import getEnvironment from '../../utils/setup/envSetup';
 
 test.describe('Login test @ft', ()=> {
-    test.only('valid login', async ({page}, testInfo) => {
+    test('valid login', async ({page}, testInfo) => {
         getEnvironment.getEnv();
         await page.goto('https://practice.expandtesting.com/login');
         await page.pause();
