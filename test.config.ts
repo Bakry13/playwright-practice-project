@@ -76,125 +76,19 @@ export default defineConfig({
     headless: true,
     // actionTimeout:6000, 
     // navigationTimeout:30000,
-    baseURL: process.env.ENV! === 'test'
-    ? baseEnvUrl.test.ui
-    : baseEnvUrl.staging.ui,
+    baseURL: 'https://practice.expandtesting.com/login',
     // storageState: 'storageState.json', 
   },
 
   /* Configure projects for major browsers */
   projects: [
-
-    // {
-    //   name: 'api',
-    //   grep: /@api/,
-    //   use: {
-    //     baseURL: process.env.ENV! === 'test'
-    //     ? baseEnvUrl.test.api
-    //     : baseEnvUrl.staging.api,
-    //     trace:'on'
-    //    },
-    // },
-
-    // {
-    //   name: 'ui',
-    //   grep: /@ui/,
-    //   grepInvert: /@smoke/,
-    //   use: { ...devices['Desktop Chrome'],
-    //     baseURL: 'https://opensource-demo.orangehrmlive.com',
-    //     trace:'retain-on-failure',
-    //    },
-    // },
-
-    // {
-    //   name: 'splitting tests',
-    //   testMatch: /.*secondScript.spec.ts/,
-    //   testIgnore: /.*firstScript.spec.ts/,
-    //   use: {
-    //     trace:'retain-on-failure',
-    //    },
-    // },
-
-    // {
-    //   name: 'setup',
-    //   testMatch: /.*setup.ts/,
-    //   teardown: 'reset',
-    //   use: { ...devices['Desktop Chrome'],
-    //     baseURL: 'https://opensource-demo.orangehrmlive.com',
-    //     trace:'retain-on-failure'
-    //    },
-    // },
-
-    // {
-    //   name: 'reset',
-    //   testMatch: /.*teardown.ts/,
-    //   use: { ...devices['Desktop Chrome'],
-    //     baseURL: 'https://opensource-demo.orangehrmlive.com',
-    //     trace:'retain-on-failure'
-    //    },
-    // },
-
-    // {
-    //   name: 'dependenciesExample',
-    //   dependencies: ['setup'],
-    //   use: { 
-    //     baseURL: 'https://opensource-demo.orangehrmlive.com',
-    //     trace:'retain-on-failure',
-    //    }
-    // },
-
-    // {
-    //   name: 'browserContext',
-    //   use: { 
-    //     trace:'retain-on-failure',
-    //    }
-    // },
-
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
         viewport: { width: 1280, height: 920 },
         trace:'retain-on-failure',
-       },
-       metadata:{
-        lang: 0 // 0 for en
        }
     },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'],
-        video: 'retain-on-failure',
-      },
-      metadata:{
-       lang: 1 // 1 for ar
-      }
-    },
-
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
 
   /* Run your local dev server before starting the tests */

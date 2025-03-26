@@ -1,3 +1,6 @@
+import testData from '../../../testData/testUsers';
+import stagingData from '../../../testData/stagingUsers';
+
 function getEnv(){
     const env = process.env.ENV!;
     if ( env === 'staging'){
@@ -8,4 +11,14 @@ function getEnv(){
     }
 }
 
-export default {getEnv};
+function getData(){
+    const env = process.env.ENV!;
+    if ( env === 'staging'){
+        return stagingData;
+    }
+    else if ( env === 'test'){
+        return testData;
+    }
+}
+
+export default {getEnv, getData};
