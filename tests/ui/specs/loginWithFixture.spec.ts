@@ -7,7 +7,7 @@ test('valid login', async ( {poManager} ) => {
     await poManager.getHomePage().assertProfileIcon();
 });
 
-test('invalid login', async ( {poManager} ) => {
+test('invalid login', async ( {poManager, loginPage} ) => {
     await poManager.getLoginPage().login(tsData.username, 'admin12');
-    await poManager.getLoginPage().assertInvalidLoginMessage();
+    await loginPage.assertInvalidLoginMessage();
 });
