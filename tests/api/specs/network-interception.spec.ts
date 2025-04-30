@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { POManager } from '../../ui/pages/poManager';
+import { POManager } from '../../ui/pages/po-manager';
 import tsData from '../../../testData/testUsers';
 import mockedResponse from '../../../mocks/responseInterception.json'
 //===================Variables===================

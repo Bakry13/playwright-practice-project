@@ -1,6 +1,6 @@
 import { type Page } from "@playwright/test";
-import { LoginPage } from "./loginPage";
-import { HomePage } from "./homePage";
+import { LoginPage } from "./login-page";
+import { HomePage } from "./home-page";
 
 export class POManager{
     private readonly page: Page; // Create a variable for the page

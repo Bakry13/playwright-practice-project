@@ -1,6 +1,6 @@
 import { test as base } from '@playwright/test';
-import { POManager } from '../pages/poManager';
-import { LoginPage } from '../pages/loginPage';
+import { POManager } from '../pages/po-manager';
+import { LoginPage } from '../pages/login-page';
 
 type myFixtures = {
     poManager: POManager;
