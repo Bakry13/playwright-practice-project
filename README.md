@@ -275,7 +275,7 @@ https://code.visualstudio.com/download
 
 * It is recommended to collect cases under descripe group
 
-* Files and folders should be named with this formate {firstWord-SecondWord..}
+* Files and folders should be named with this format {firstWord-secondWord..}
 
 * Variables and methods should start with small letters
 
