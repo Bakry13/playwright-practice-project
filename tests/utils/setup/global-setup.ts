@@ -3,7 +3,7 @@ import { POManager } from '../../ui/pages/po-manager';
 import tsData from '../../../test-data/test-users';
 
 async function globalSetup(config: FullConfig) {
-    const storageStatePath = 'storageState.json';
+    const storageStatePath = 'storage-state.json';
     //====================Initialize env URL========================
     const { baseURL, storageState } = config.projects[0].use;
     //==================Initialize default login=====================
