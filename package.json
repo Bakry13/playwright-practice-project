@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "uim": "npx playwright test --project=ui",
+    "debug": "npx playwright test --project=debug",
+    "repeat": "npx playwright test --prepeate-each 5",
     "api": "npx playwright test --grep @api",
     "ui": "npx playwright test --project=ui",
     "ft": "npx playwright test --grep @ft",
