@@ -1,15 +1,18 @@
-import { test } from '@playwright/test';
-import { POManager } from '../pages/poManager';
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/login-page';
+import { HomePage } from '../pages/home-page';
 //===================Variables===================
-let poManager: POManager;
+let loginPage: LoginPage;
+let homePage: HomePage;
 //===================Hooks======================
 test.beforeAll('This actions run before all tests',async () =>{
     console.log('This actions run before all tests');
 }) 
 
 test.beforeEach('This actions run before every test',async ({page}, testInfo) =>{
-    poManager = new POManager(page);
-    await poManager.getLoginPage().open();
+    loginPage = new LoginPage(page);
+    homePage = new HomePage(page);
+    await loginPage.open();
     console.log(`test starts for: ${testInfo.title}`);
 })
 
@@ -23,12 +26,12 @@ test.afterAll('This actions run after all tests',async () =>{
 //====================Tests======================
 test.describe('Login test', ()=> {
     test('valid login', async ({ page }) => {
-        await poManager.getLoginPage().login('Admin', 'admin123');
-        await poManager.getHomePage().assertProfileIcon();
+        await loginPage.login('Admin', 'admin123');
+        await homePage.assertProfileIcon();
     });
 
     test('invalid login', async ({ page }) => {
-        await poManager.getLoginPage().login('Admin', 'admin12');
-        await poManager.getLoginPage().assertInvalidLoginMessage();
+        await loginPage.login('Admin', 'admin12');
+        await loginPage.assertInvalidLoginMessage();
     }); 
 });

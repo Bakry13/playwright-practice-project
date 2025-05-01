@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { POManager } from '../pages/poManager';
-import tsData from '../../../testData/testUsers';
+import { POManager } from '../pages/po-manager';
+import tsData from '../../../test-data/test-users';
 
 // test.use({ storageState: {cookies: [], origins: []} });
 //===================Variables===================

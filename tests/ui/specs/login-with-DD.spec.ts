@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { POManager } from '../pages/poManager';
-import jsonData from '../../../testData/testUsers.json'
-import tsData from '../../../testData/testUsers';
-import invalidData from '../../../testData/invalidTestUsers'
+import { POManager } from '../pages/po-manager';
+import jsonData from '../../../test-data/test-users.json'
+import tsData from '../../../test-data/test-users';
+import invalidData from '../../../test-data/invalid-test-users'
 //===================Variables===================
 let poManager: POManager;
 //json format -> string -> ts object

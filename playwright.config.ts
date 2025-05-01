@@ -63,8 +63,8 @@ export default defineConfig({
   timeout: 2*60*1000, //General timeout for the test run is 1min
   globalTimeout: 3*60*60*1000, //General timeout for the total run is 3hr
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  // globalSetup: require.resolve('./tests/utils/setup/globalSetup.ts'),
-  // globalTeardown: require.resolve('./tests/utils/setup/globalTeardown.ts'),
+  // globalSetup: require.resolve('./tests/utils/setup/global-setup.ts'),
+  // globalTeardown: require.resolve('./tests/utils/setup/global-teardown.ts'),
   
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -79,7 +79,7 @@ export default defineConfig({
     baseURL: process.env.ENV! === 'test'
     ? baseEnvUrl.test.ui
     : baseEnvUrl.staging.ui,
-    // storageState: 'storageState.json', 
+    // storageState: 'storage-state.json', 
   },
 
   /* Configure projects for major browsers */

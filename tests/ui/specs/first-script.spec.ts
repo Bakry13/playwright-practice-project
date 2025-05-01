@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import getEnvironment from '../../utils/setup/envSetup';
-import getData from '../../utils/setup/envSetup';
+import getEnvironment from '../../utils/setup/env-setup';
+import getData from '../../utils/setup/env-setup';
 
 test.describe('Login test @ft', ()=> {
     test('valid login', async ({page}, testInfo) => {

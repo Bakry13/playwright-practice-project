@@ -1,5 +1,5 @@
-import { test } from '../fixtures/loginFixture';
-import tsData from '../../../testData/testUsers';
+import { test } from '../fixtures/login-fixture';
+import tsData from '../../../test-data/test-users';
 
 //====================Tests======================
 test('valid login', async ( {poManager} ) => {

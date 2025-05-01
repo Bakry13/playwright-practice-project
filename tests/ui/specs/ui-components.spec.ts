@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import exp from 'constants';
 
 test.describe('Dealing with UI Components', ()=> {
     test('drop down list', async ({page}) => {

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { POManager } from '../../ui/pages/po-manager';
-import tsData from '../../../testData/testUsers';
-import mockedResponse from '../../../mocks/responseInterception.json'
+import tsData from '../../../test-data/test-users';
+import mockedResponse from '../../../mocks/response-interception.json'
 //===================Variables===================
 let poManager: POManager;
 //===================Hooks======================

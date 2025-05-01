@@ -1,6 +1,6 @@
 import { chromium, FullConfig } from "@playwright/test";
-import { POManager } from '../../ui/pages/poManager';
-import tsData from '../../../testData/testUsers';
+import { POManager } from '../../ui/pages/po-manager';
+import tsData from '../../../test-data/test-users';
 
 async function globalSetup(config: FullConfig) {
     const storageStatePath = 'storageState.json';

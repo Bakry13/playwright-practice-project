@@ -52,9 +52,9 @@ test.describe('Login test', ()=> {
     test('Upload files', async ({page}) => {
         await page.goto('https://demo.automationtesting.in/FileUpload.html');
         //1- upload single file
-        // await page.locator("#input-4").setInputFiles('testData/testFile1.txt');
+        // await page.locator("#input-4").setInputFiles('test-data/testFile1.txt');
         //2- upload multiple files
-        await page.locator("#input-4").setInputFiles(['testData/testFile1.txt', 'testData/testFile2.docs']);
+        await page.locator("#input-4").setInputFiles(['test-data/testFile1.txt', 'test-data/testFile2.docs']);
         await page.locator("//button[@title='Upload selected files']").click();
         //assertion
         await expect(page.locator("(//div[@title='testFile1.txt'])[1]")).toBeVisible();

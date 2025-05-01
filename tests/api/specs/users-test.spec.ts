@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import usersRequest from '../endpoints/usersEndpoints';
+import usersRequest from '../endpoints/users-endpoints';
 //=======================Variables==========================
 let response;
 let jsonResponse;

@@ -1,5 +1,5 @@
-import testData from '../../../testData/testUsers';
-import stagingData from '../../../testData/stagingUsers';
+import testData from '../../../test-data/test-users';
+import stagingData from '../../../test-data/staging-users';
 
 function getEnv(){
     const env = process.env.ENV!;

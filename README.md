@@ -257,7 +257,7 @@ https://code.visualstudio.com/download
 ## `Project Structure:`
 *The below is a package diagram for the implemented project structure "Files and folders"*
 
-![Screenshot](PlaywrightPracticeProject.png)
+![Screenshot](project-structure.png)
 
 ## `General instructions and guidelines:`
 
