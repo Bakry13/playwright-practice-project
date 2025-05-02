@@ -4,7 +4,7 @@
 
 *- You can use this framework to be a start point for your test automation project to write your automated test cases.*
 
-*- This project is based on Playwright oficial documentaiton and you can find more detais in the website:*
+*- This project is based on Playwright official documentaiton and you can find more details in the website:*
 https://playwright.dev/docs/intro
 
 ## `Preparation:`
@@ -29,54 +29,42 @@ https://code.visualstudio.com/download
 
         npm install
 
-## `Features:`
+## `How to run?`
 
-### A. Usage of Playwright advantages:
+### A. Running normal test cases:
 
-#### 1- Waits and timout adjustment
-* Total run timeout
-* Action timeout
-* Expect timeout
+#### 1- Use direct command as below:
 
-#### 2- Screenshots, video recording and trace preparation
-* General adjustment across the project
-* Special adjustment per browser
+        npx playwright test
 
-#### 3- Different types of reports configurations
-* html - json - junit - line - dot
+#### 2- Show the report:
 
-#### 4- Parallel execution and number of workers adjustment
-* Number of worker adjustment inside the config file
+        npx playwright show-report
 
-#### 5- Fixtures
-* Grouping pages and general actions related to set of tests
-* Adding an example of using fixtures
+#### 3- To pass the used environment you can use the below bash command:
 
-#### 6- Global Setup
-* Preserving cookies to avoid repeating login actions
-* Adding the pre required actions of the test run
+        ENV=test npx playwright test
 
-#### 7- API tests
-* Adding usable API URLs
-* Applying api tests with different methods using simple examples
+### B. Running test cases using a pre-defined script in package.json:
 
-#### 8- Visual test
-* Applying visual tests in different pages using simple examples
+        npm run {predefined command}
 
-#### 9- Tests examples
-* Simple examples of test cases scripts using some options like "annotations, filteration, ..."
+### C. Generating/ Openning Allure report:
 
-### B. Extra features:
+#### 1- Generate the report:
 
-#### 1- Page Object Model design pattern
-* Separating pages contents in different modules to enhance readability and maintainability
+        npx allure generate {report path} -o {generation path} --clean
 
-#### 1- Project structure adjustment to modules
-* Dividing the project into modules according to its functionality and usage
+#### 2- Open the report:
 
-#### 2- Using data driven framework
-* Separating test data to external files to enhance readability and maintainability
-* Reading from different types of files (json format and ts files)
+        npx allure open {generated report path}
+
+### D. Using Eslint to make static analysis:
+
+#### 1- Run Eslint command:
+
+        npx eslint {file path}
+
 ## `Features:`
 
 ### A. Usage of Playwright advantages:
@@ -217,42 +205,6 @@ https://code.visualstudio.com/download
 
 #### 8- .eslintrc.config.ts:
 * Configurations and rules for code static analysis
-
-## `How to run?`
-
-### A. Running normal test cases:
-
-#### 1- Use direct command as below:
-
-        npx playwright test
-
-#### 2- Show the report:
-
-        npx playwright show-report
-
-#### 3- To pass the used environment you can use the below bash command:
-
-        ENV=test npx playwright test
-
-### B. Running test cases using a pre-defined script in package.json:
-
-        npm run {predefined command}
-
-### C. Generating/ Openning Allure report:
-
-#### 1- Generate the report:
-
-        npx allure generate {report path} -o {generation path} --clean
-
-#### 2- Open the report:
-
-        npx allure open {generated report path}
-
-### D. Using Eslint to make static analysis:
-
-#### 1- Run Eslint command:
-
-        npx eslint {file path}
 
 ## `Project Structure:`
 *The below is a package diagram for the implemented project structure "Files and folders"*
