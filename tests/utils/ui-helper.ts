@@ -18,9 +18,9 @@ async function performVisualCheck(page: Page, maxDiffRatio?: number) {
         // await poManager.getCommonPage()?.assertLoaderNotExist(); // we make sure loader is not visible on top of element
 
         // adjust the viewport size to fit full height of the screen
-        const originalHeight = page.viewportSize()?.height ?? 720;
-        const currentPageHeight = await page.evaluate(() => document.body.scrollHeight);
-        await resizeViewport(page, { height: currentPageHeight });
+        // const originalHeight = page.viewportSize()?.height ?? 720;
+        // const currentPageHeight = await page.evaluate(() => document.body.scrollHeight);
+        // await resizeViewport(page, { height: currentPageHeight });
 
         await expect.soft(page).toHaveScreenshot({
             maxDiffPixelRatio: maxDiffRatio,
@@ -28,7 +28,7 @@ async function performVisualCheck(page: Page, maxDiffRatio?: number) {
         });
 
         // reset to viewport size to the one defined in config
-        await resizeViewport(page, { height: originalHeight });
+        // await resizeViewport(page, { height: originalHeight });
     });
 }
 
