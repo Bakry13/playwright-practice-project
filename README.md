@@ -4,7 +4,7 @@
 
 *- You can use this framework to be a start point for your test automation project to write your automated test cases.*
 
-*- This project is based on Playwright official documentaiton and you can find more details in the website:*
+*- This project is based on Playwright official documentation and you can find more details in the website:*
 https://playwright.dev/docs/intro
 
 ## `Preparation:`
