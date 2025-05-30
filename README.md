@@ -19,7 +19,7 @@ https://code.visualstudio.com/download
 
 #### 3- Install VSCode extentions
 * Playwright test for VSCode
-* ESLint
+* EsLint
 
 ### B. Project readiness
 
