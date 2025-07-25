@@ -10,6 +10,7 @@ export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,ts}"], plugins: { js }, extends: ["js/recommended"] },
   { rules: {
             "semi": ["off", "always"],
+            "@typescript-eslint/no-undef": "warn",
             "@typescript-eslint/prefer-as-const": "off",
             "prefer-const": "off",
             "no-empty": "off",  

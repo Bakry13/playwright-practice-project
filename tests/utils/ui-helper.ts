@@ -1,5 +1,8 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, type Page, TestInfo } from "@playwright/test";
 import { POManager } from "../ui/pages/po-manager";
+import * as fs from "fs";
+import { exec } from "child_process";
+import path from "path";
 
 let poManager: POManager;
 
@@ -31,5 +34,46 @@ async function performVisualCheck(page: Page, maxDiffRatio?: number) {
         await resizeViewport(page, { height: originalHeight });
     });
 }
+//----------- attach the report to the test info ------------
+async function attachLHReport(reportPath: string, testInfo: TestInfo) {
+    if (fs.existsSync(reportPath)) {
+        await testInfo.attach('Lighthouse Report', {
+            path: reportPath,
+            contentType: 'text/html',
+        });
+    }
+}
 
-export default { performVisualCheck };
+
+async function checkFEPerformance(testInfo: TestInfo, portalName: string = 'internal') {
+    const reportRootPath = './lhci-reports';
+    let reportPath = './lhci-reports';
+    if (portalName === 'internal') {
+        reportPath = `${reportRootPath}/lh-report.html`;
+    }
+
+    
+    await test.step(`I check the frontend performance of the internal website`, async () => {
+        const lhciPath = path.resolve('./node_modules/.bin/lhci');
+        const command = `"${lhciPath}" autorun`;
+        
+        return new Promise<void>((resolve, reject) => {
+            exec(command, (error, stdout, stderr) => {
+                console.log(`Checking frontend performance for ${portalName} website using lighthouse...`);
+                if (error) {
+                    console.error(`❌ Error: ${error.message}`);
+                    reject(error);
+                    // return;
+                }
+                // if (stderr) {
+                //     console.error(`⚠️ STDERR: ${stderr}`);
+                // }
+                console.log(`✅ Lighthouse Output:\n${stdout}`);
+                attachLHReport(reportPath, testInfo);
+                resolve();
+            });
+        });
+    });
+}
+
+export default { performVisualCheck, checkFEPerformance };

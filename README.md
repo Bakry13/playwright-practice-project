@@ -4,7 +4,7 @@
 
 *- You can use this framework to be a start point for your test automation project to write your automated test cases.*
 
-*- This project is based on Playwright official documentaiton and you can find more details in the website:*
+*- This project is based on Playwright official documentation and you can find more details in the website:*
 https://playwright.dev/docs/intro
 
 ## `Preparation:`
@@ -132,6 +132,11 @@ https://code.visualstudio.com/download
 * Adding the eslint dependency for static analysis for typescript code
 * Adding .eslintc.js config file to adjust its rules
 
+#### 8- Lighthouse tool for frontend performance test
+* Adding lighthouse dependency for frontend performance for the website under test
+* We can use it for best practicies, accessability and SEO tests
+
+
 ## `Contents:`
 
 ### A. Folders and directories:
@@ -164,6 +169,7 @@ https://code.visualstudio.com/download
 #### 9- tests/utilities/:
 * urls.ts: base URL for every environment
 * screenshot.css: visual testing configuration for dynamic pages
+* lighthouse-helper.ts: frontend performance using lighthouse tool
 
 #### 10- playwright-report/:
 * Playwright default reports (html, line, dot, json, junit, ...)
