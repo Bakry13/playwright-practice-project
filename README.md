@@ -197,7 +197,7 @@ https://code.visualstudio.com/download
 * Environment variables
 * Secrets
 
-#### 6- storageState:
+#### 6- storageState.json:
 * To save login cookies and optimizing authentication
 
 #### 7- .github/workflows/playwright.yml:
