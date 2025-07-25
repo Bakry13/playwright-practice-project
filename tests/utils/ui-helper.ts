@@ -45,13 +45,9 @@ async function attachLHReport(reportPath: string, testInfo: TestInfo) {
 }
 
 
-async function checkFEPerformance(testInfo: TestInfo, portalName: string = 'internal') {
+async function checkFEPerformance(testInfo: TestInfo) {
     const reportRootPath = './lhci-reports';
-    let reportPath = './lhci-reports';
-    if (portalName === 'internal') {
-        reportPath = `${reportRootPath}/lh-report.html`;
-    }
-
+    let reportPath = `${reportRootPath}/lh-report.html`;
     
     await test.step(`I check the frontend performance of the internal website`, async () => {
         const lhciPath = path.resolve('./node_modules/.bin/lhci');
@@ -59,7 +55,7 @@ async function checkFEPerformance(testInfo: TestInfo, portalName: string = 'inte
         
         return new Promise<void>((resolve, reject) => {
             exec(command, (error, stdout, stderr) => {
-                console.log(`Checking frontend performance for ${portalName} website using lighthouse...`);
+                console.log(`Checking frontend performance for the website using lighthouse...`);
                 if (error) {
                     console.error(`❌ Error: ${error.message}`);
                     reject(error);

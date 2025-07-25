@@ -212,6 +212,9 @@ https://code.visualstudio.com/download
 #### 8- .eslintrc.config.ts:
 * Configurations and rules for code static analysis
 
+#### 9- lighthouserc.js:
+* Configurations for running frontend performance using lighthouse ci
+
 ## `Project Structure:`
 *The below is a package diagram for the implemented project structure "Files and folders"*
 
