@@ -2,8 +2,8 @@ import { test, TestInfo, chromium, type Page } from "@playwright/test";
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
-import { playAudit } from "playwright-lighthouse";
-import envHelper from "../utils/setup/env-setup";
+// import { playAudit } from "playwright-lighthouse";
+import tsData from '../../test-data/test-users';
 import { LoginPage } from "../ui/pages/login-page";
 import { exec } from 'child_process';
 
@@ -18,10 +18,11 @@ async function openChromeContext() {
     return page;
 }
 
-async function login() {
+async function loginToPortal() {
     let page = await openChromeContext();
-    const username = envHelper.getData()!.username;
-    const password = envHelper.getData()!.password;;
+    //Login steps
+    const username = tsData!.username;
+    const password = tsData!.password;
     const loginPage= new LoginPage(page);
     await loginPage.open();
     await loginPage.login(username, password);
@@ -31,13 +32,14 @@ async function login() {
 async function checkFEPerformance(testInfo: TestInfo, pageURL?: string) {
     const reportRootPath = './lh-reports';
     let reportPath = './lh-reports/lh-report.html';
-    let page = await login();
-    await page.goto(pageURL);
+    let page = await loginToPortal();
+     await page.goto(pageURL);
     reportPath = `${reportRootPath}/lh-report.html`;
 
-    await test.step(`I check the frontend performance of the internal website`, async () => {
+    await test.step(`I check the frontend performance of OrangeHRM website`, async () => {
         // When lighthouse opens a new page the storage will be persisted meaning the new page will have the same user session
         try {
+            const { playAudit } = await import('playwright-lighthouse');
             await playAudit({
             page: page,
             thresholds: {
@@ -63,7 +65,7 @@ async function checkFEPerformance(testInfo: TestInfo, pageURL?: string) {
             test.fail();
         }
         await context.close();
-        console.log(`✅ Lighthouse performance check completed for the website.`);
+        console.log(`✅ Lighthouse performance check completed for OrangeHRM website.`);
         attachLHReport(reportPath, testInfo);
     });   
 }
@@ -78,20 +80,20 @@ async function attachLHReport(reportPath: string, testInfo: TestInfo) {
     }
 }
 
-async function checkFEPerformanceUsingLHCI(testInfo: TestInfo, portalName: string = 'orangeHRM') {
+async function checkFEPerformanceUsingLHCI(testInfo: TestInfo, portalName: string = 'internal') {
     const reportRootPath = './lhci-reports';
     let reportPath = './lhci-reports';
-    if (portalName === 'orangeHRM') {
+    if (portalName === 'internal') {
         reportPath = `${reportRootPath}/lh-report.html`;
     }
     
-    await test.step(`I check the frontend performance of the internal website`, async () => {
+    await test.step(`I check the frontend performance of OrangeHRM website`, async () => {
         const lhciPath = path.resolve('./node_modules/.bin/lhci');
         const command = `"${lhciPath}" autorun`;
         
         return new Promise<void>((resolve, reject) => {
             exec(command, (error, stdout, stderr) => {
-                console.log(`Checking frontend performance for ${portalName} website using lighthouse...`);
+                console.log(`Checking frontend performance for OrangeHRM website using lighthouse...`);
                 if (error) {
                     console.error(`❌ Error: ${error.message}`);
                     reject(error);
