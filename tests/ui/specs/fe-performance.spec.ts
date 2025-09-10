@@ -7,6 +7,6 @@ test.only('Check that internal website fe performance is acceptable', {
         type: 'ui, sanity, regression and performance test',
         description: 'Check that fronted performance, accessability, best practicis and seo are acceptable',
     }},
-    async({ loginPage }) => {
+    async({}) => {
         await lighthouseHelper.checkFEPerformance(test.info(), 'https://opensource-demo.orangehrmlive.com/');
 });
